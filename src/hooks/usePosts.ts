@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { LocalPost, RemotePost } from "../types/post.type";
-import moment from "moment";
+import { RemotePost } from "../types/post.type";
+import { PostModel } from "../models/post.model";
 
 export const usePosts = () => {
-    const [posts, setPosts] = useState<LocalPost[]>([]);
+    const [posts, setPosts] = useState<PostModel[]>([]);
 
     useEffect(()=>{
       const fetchPosts = async () => {
@@ -11,15 +11,7 @@ export const usePosts = () => {
   
         const postsData: RemotePost[] = await response.json()
         
-        setPosts(postsData.map((post:RemotePost)=>{
-          return {
-            postId:post.postId,
-            authorName:post.authorName,
-            content:post.content,
-            avatar: post.avatar, 
-            publishedDate:moment(post.publishedDate).fromNow(),
-          }
-        }))
+        setPosts(postsData.map((post:RemotePost)=> new PostModel(post)))
       }
   
       fetchPosts()

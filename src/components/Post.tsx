@@ -1,6 +1,7 @@
-import { LocalPost } from "../types/post.type";
+import { PostModel } from "../models/post.model";
 
-export const Post = ({ post }: { post: LocalPost }) => {
+export const Post = ({ postModel }: { postModel: PostModel }) => {
+  const { post } = postModel
   return (
     <div className="max-w-xl border-b border-solid border-zinc-100">
       <div className="my-4 flex gap-4 ">
@@ -12,7 +13,7 @@ export const Post = ({ post }: { post: LocalPost }) => {
           <p className="flex gap-2 items-center">
             <span className="font-semibold text-zinc-800">
               {post.authorName}
-              {post.authorName === "Sandra Lindgren" && "*"}
+              {postModel.isCurrentUser && "*"}
             </span>
             <span className="font-semibold text-zinc-300">.</span>
             <span className="text-sm text-zinc-500">{post.publishedDate}</span>
