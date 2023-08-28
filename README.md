@@ -1,9 +1,3 @@
-# Vite + React + TS Starter
+# Twitter Feed
 
-1. Removed all the unnecessary code.
-2. Added Tailwind Configuration.
-
-Todo:
-
-1. Configure EsLint config and prettier
-2. Configure Vitest
+This explains implementing clean code strategies.
