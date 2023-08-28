@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LocalPost, RemotePost } from "../types/Post.type";
+import { LocalPost, RemotePost } from "../types/post.type";
 import moment from "moment";
 
 export const Posts = () => {
